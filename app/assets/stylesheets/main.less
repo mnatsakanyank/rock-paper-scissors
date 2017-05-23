@@ -1,0 +1,83 @@
+@import "base/_bootstrap.less";
+
+body {
+  margin-top: 40px;
+  line-height: 1.5;
+  background-color: transparent !important;
+}
+
+/* AngularJS */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none;
+}
+
+.full {
+  background: url('/assets/images/bkg.jpeg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.action-image {
+  width: 50%;
+  border: 0;
+}
+
+.fill {
+  min-height: 100%;
+  height: 100%;
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  background-color: transparent !important;
+}
+
+.icon-flipped {
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #cecece;
+  padding: 16px 8px;
+  background: #ededed;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #ededed));
+  background: -moz-linear-gradient(top, #f4f4f4 0%, #ededed 100%);
+  background: -ms-linear-gradient(top, #f4f4f4 0%, #ededed 100%);
+}
+
+.item {
+  display: table;
+}
+
+.content {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.content:before {
+  content: "Content";
+  font-family: sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #747474;
+}
+
+.container-table {
+  display: table;
+}
+.vertical-center-row {
+  display: table-cell;
+  vertical-align: middle;
+}

@@ -1,0 +1,57 @@
+
+<div class="row">
+    <div class="container">
+        <div class="text-center media" style="margin-top: 40px;">
+            <div style="display: inline-block !important; width: 100px;">
+                <button type="button" class="btn {{pv1GameClass}}">{{pv1GameStatus}} <span
+                        class="badge">{{pv1Score}}</span>
+                </button>
+            </div>
+            <div style="display: inline-block !important; width: 100px;">
+                <button type="button" class="btn {{pv2GameClass}}">{{pv2GameStatus}} <span
+                        class="badge">{{pv2Score}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-lg-offset-3">
+
+        <input type="image" id="pv1-paper"
+               ng-show="movePv1=='pv1-paper'||mode=='PvC'"
+               ng-disabled="mode!='PvC'"
+               ng-click="playerMove('PAPER')"
+               class="action-image"
+               src="/assets/images/paper.png"/>
+
+        <input type="image" id="pv1-rock"
+               ng-show="movePv1=='pv1-rock'||mode=='PvC'"
+               ng-disabled="mode!='PvC'"
+               ng-click="playerMove('ROCK')"
+               class="action-image"
+               src="/assets/images/rock.png"/>
+
+        <input type="image" id="pv1-scissors"
+               ng-show="movePv1=='pv1-scissors'||mode=='PvC'"
+               ng-disabled="mode!='PvC'"
+               ng-click="playerMove('SCISSORS')"
+               class="action-image"
+               src="/assets/images/scissors.png"/>
+    </div>
+    <div class="col-lg-3 col-lg-offset-2">
+        <img id="pv2-paper"
+             ng-show="movePv2=='pv2-paper'"
+             class="action-image icon-flipped"
+             src="/assets/images/paper.png"/>
+
+        <img id="pv2-rock"
+             ng-show="movePv2=='pv2-rock'"
+             class="action-image icon-flipped"
+             src="/assets/images/rock.png"/>
+
+        <img id="pv2-scissors"
+             ng-show="movePv2=='pv2-scissors'"
+             class="action-image icon-flipped"
+             src="/assets/images/scissors.png"/>
+    </div>
+</div>
+</div>

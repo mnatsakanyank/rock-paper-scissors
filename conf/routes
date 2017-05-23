@@ -1,0 +1,10 @@
+GET        /                         controllers.GameController.index()
+
+# JavaScript routes object
+GET        /jsroutes.js              controllers.JsRoutes.jsRoutes()
+
+GET        /randomMove               controllers.GameController.randomMove()
+
+GET        /resultForFirstPlayer        controllers.GameController.resultForFirstPlayer(p1Move: String, p2Move: String)
+
+GET        /assets/*file             controllers.Assets.versioned(path="/public", file: Asset)
