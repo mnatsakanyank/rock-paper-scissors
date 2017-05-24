@@ -10,7 +10,7 @@ class JsRoutes(val cache: CacheApi) extends Controller  {
 
   val cacheDuration = 1.day
 
-  def Caching(key: String, okDuration: Duration) =
+  def caching(key: String, okDuration: Duration) =
     new Cached(cache)
       .status(_ => key, OK, okDuration.toSeconds.toInt)
       .includeStatus(NOT_FOUND, 5.minutes.toSeconds.toInt)
@@ -27,7 +27,7 @@ class JsRoutes(val cache: CacheApi) extends Controller  {
     }
   }
 
-  def jsRoutes(varName: String = "jsRoutes") = Caching("jsRoutes", cacheDuration) {
+  def jsRoutes(varName: String = "jsRoutes") = caching("jsRoutes", cacheDuration) {
     Action { implicit request =>
       Ok(play.api.routing.JavaScriptReverseRouter(varName)(routeCache: _*)).as(JAVASCRIPT)
     }

@@ -22,8 +22,8 @@ The Application modules are organized as follows:
 ## Implementation Details
   
   JsRoutes Controller - The play framework is able to generate Javascript code to handle routing from 
-  Javascript running client side back to your application. JsRoutes Controller serves this functionality which 
-  basically configuration. No need to write tests for this.
+  Javascript running client side back to your application. JsRoutes Controller serves this functionality which is
+  basically configurations. No need to write tests for this.
   
   AppLoader - is the entry point for the application and holds configurations for play framework. No tests needed
   
@@ -53,3 +53,7 @@ Deployment:
 
 
 This uses the uglified JavaScript files, versioned and compressed assets
+
+## Known issues
+
+* UI is not responsive

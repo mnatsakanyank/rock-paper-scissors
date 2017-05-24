@@ -3,29 +3,22 @@ package controllers
 
 import models.Move
 import org.scalatestplus.play._
-import play.api.libs.json.{JsString, JsValue}
-import play.api.mvc._
-import play.api.test._
-import play.api.test.Helpers._
-import org.scalatest._
-import org.scalatest.matchers._
-import play.api._
 import play.api.mvc._
 import play.api.test.Helpers._
 import play.api.test._
 
 import scala.concurrent.Future
+
 /**
   * Created by karen.mnatsakanyan on 23/05/2017.
   */
 class GameControllerTest extends PlaySpec with Results {
 
   "GameController index" in {
-      val controller = new GameController()
-      val result: Future[Result] = controller.index().apply(FakeRequest())
-      val bodyText: String = contentAsString(result)
-      status(result) mustBe OK
-      contentType(result).get mustBe "text/html"
+    val controller = new GameController()
+    val result: Future[Result] = controller.index().apply(FakeRequest())
+    status(result) mustBe OK
+    contentType(result).get mustBe "text/html"
   }
 
 
@@ -40,8 +33,7 @@ class GameControllerTest extends PlaySpec with Results {
 
   "GameController resultForFirstPlayer should be LOOSE" in {
     val controller = new GameController()
-    val result: Future[Result] = controller.resultForFirstPlayer("ROCK","PAPER").apply(FakeRequest())
-    val bodyText: String = contentAsString(result)
+    val result: Future[Result] = controller.resultForFirstPlayer("ROCK", "PAPER").apply(FakeRequest())
     status(result) mustBe OK
     contentType(result).get mustBe "text/plain"
     contentAsString(result) mustBe "LOOSE"
@@ -49,8 +41,7 @@ class GameControllerTest extends PlaySpec with Results {
 
   "GameController resultForFirstPlayer should be DRAW" in {
     val controller = new GameController()
-    val result: Future[Result] = controller.resultForFirstPlayer("ROCK","ROCK").apply(FakeRequest())
-    val bodyText: String = contentAsString(result)
+    val result: Future[Result] = controller.resultForFirstPlayer("ROCK", "ROCK").apply(FakeRequest())
     status(result) mustBe OK
     contentType(result).get mustBe "text/plain"
     contentAsString(result) mustBe "DRAW"
@@ -58,8 +49,7 @@ class GameControllerTest extends PlaySpec with Results {
 
   "GameController resultForFirstPlayer should be WIN" in {
     val controller = new GameController()
-    val result: Future[Result] = controller.resultForFirstPlayer("ROCK","SCISSORS").apply(FakeRequest())
-    val bodyText: String = contentAsString(result)
+    val result: Future[Result] = controller.resultForFirstPlayer("ROCK", "SCISSORS").apply(FakeRequest())
     status(result) mustBe OK
     contentType(result).get mustBe "text/plain"
     contentAsString(result) mustBe "WIN"
@@ -68,20 +58,11 @@ class GameControllerTest extends PlaySpec with Results {
 
   "GameController resultForFirstPlayer should be BAD_REQUEST" in {
     val controller = new GameController()
-    val result: Future[Result] = controller.resultForFirstPlayer("ROCK","rocky balboa").apply(FakeRequest())
-    val bodyText: String = contentAsString(result)
+    val result: Future[Result] = controller.resultForFirstPlayer("ROCK", "rocky balboa").apply(FakeRequest())
     status(result) mustBe BAD_REQUEST
     contentType(result).get mustBe "text/plain"
     contentAsString(result) mustBe "Illegal moves"
   }
 
-//  "GameController resultForFirstPlayer should be BAD_REQUEST" in {
-//    val controller = new GameController()
-//    val result: Future[Result] = controller.resultForFirstPlayer("ROCK","rocky balboa").apply(FakeRequest())
-//    val bodyText: String = contentAsString(result)
-//    status(result) mustBe BAD_REQUEST
-//    contentType(result).get mustBe "text/plain"
-//    contentAsString(result) mustBe "Illegal moves"
-//  }
 
 }
