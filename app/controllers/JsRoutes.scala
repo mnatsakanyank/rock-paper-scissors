@@ -8,7 +8,7 @@ import scala.concurrent.duration._
 
 class JsRoutes(val cache: CacheApi) extends Controller  {
 
-  val cacheDuration = 1.day
+  val cacheDuration: FiniteDuration = 1.day
 
   def caching(key: String, okDuration: Duration) =
     new Cached(cache)
