@@ -7,6 +7,12 @@ import play.api.libs.json.{JsString, JsValue}
 import play.api.mvc._
 import play.api.test._
 import play.api.test.Helpers._
+import org.scalatest._
+import org.scalatest.matchers._
+import play.api._
+import play.api.mvc._
+import play.api.test.Helpers._
+import play.api.test._
 
 import scala.concurrent.Future
 /**
@@ -68,4 +74,14 @@ class GameControllerTest extends PlaySpec with Results {
     contentType(result).get mustBe "text/plain"
     contentAsString(result) mustBe "Illegal moves"
   }
+
+//  "GameController resultForFirstPlayer should be BAD_REQUEST" in {
+//    val controller = new GameController()
+//    val result: Future[Result] = controller.resultForFirstPlayer("ROCK","rocky balboa").apply(FakeRequest())
+//    val bodyText: String = contentAsString(result)
+//    status(result) mustBe BAD_REQUEST
+//    contentType(result).get mustBe "text/plain"
+//    contentAsString(result) mustBe "Illegal moves"
+//  }
+
 }

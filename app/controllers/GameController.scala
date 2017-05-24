@@ -22,12 +22,12 @@ class GameController() extends Controller with Logging {
     val mayBeFirstPlayerMove = Move.withNameOpt(p1Move)
     val mayBeSecondPlayerMove = Move.withNameOpt(p2Move)
 
-    if (mayBeFirstPlayerMove.isEmpty || mayBeSecondPlayerMove.isEmpty) {
-      BadRequest("Illegal moves")
-    } else {
-      val gameResult = moveCompare(mayBeFirstPlayerMove.get.asInstanceOf[Move.MoveValue], mayBeSecondPlayerMove.get.asInstanceOf[Move.MoveValue])
-      Ok(gameResult.toString)
-    }
+    val result = for {
+      first <- mayBeFirstPlayerMove
+      second <- mayBeSecondPlayerMove
+    } yield moveCompare(first, second)
+
+    result.map(r => Ok(r.toString)).getOrElse(BadRequest("Illegal moves"))
   }
 
 }

@@ -9,15 +9,25 @@ Implemented with Scala Play framework, AngularJs 1.4, WebJars and RequireJS
 
 ## Code Organization
 
-The JavaScript modules are organized as follows:
+The Application modules are organized as follows:
 
     |- app
     |-- assets 
-    |--- javascripts    <- contains all the JavaScript modules
+    |--- javascripts <- contains all the JavaScript modules
+    |--- stylesheets <- contains all styles needed
     |--controllers <- controllers to serve backend actions
     |--models <- models for rendering 
     |--views <- index page
 
+## Implementation Details
+  
+  JsRoutes Controller - The play framework is able to generate Javascript code to handle routing from 
+  Javascript running client side back to your application. JsRoutes Controller serves this functionality which 
+  basically configuration. No need to write tests for this.
+  
+  AppLoader - is the entry point for the application and holds configurations for play framework. No tests needed
+  
+  GameController - Main Controller for the game
 
 ## Trying It Out
 
